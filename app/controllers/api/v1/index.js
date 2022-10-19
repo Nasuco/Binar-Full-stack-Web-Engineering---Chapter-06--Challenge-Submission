@@ -1,6 +1,6 @@
 /**
  * @file contains entry point of controllers api v1 module
- * @author Fikri Rahmat Nurhidayat
+ * @author Kelompok5
  */
 
 const cars = require("./cars");

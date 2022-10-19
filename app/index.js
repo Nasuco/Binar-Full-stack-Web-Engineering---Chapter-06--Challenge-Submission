@@ -1,6 +1,6 @@
 /**
  * @file Bootstrap express.js server
- * @author Fikri Rahmat Nurhidayat
+ * @author Kelompok5
  */
 
 const { urlencoded } = require("express");
@@ -18,11 +18,15 @@ app.use(morgan("dev"));
 
 /** Install JSON request parser */
 app.use(express.json());
-app.use(express(urlencoded({ extended: true })));
+app.use(express(urlencoded ({
+    extended: true
+})))
 
+/** Install View Engine */
 app.set("views", viewsDir);
 app.set("view engine", "ejs");
 
+/** Set Public Directory */
 app.use(express.static(publicDir));
 
 /** Install Router */

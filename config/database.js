@@ -1,6 +1,6 @@
 /**
  * @file Manages database connection configuration.
- * @author Fikri Rahmat Nurhidayat
+ * @author kelompok5
  */
 
 /** Destruct environment variable to get database configuration */
@@ -8,14 +8,14 @@ const {
   DB_USERNAME = "postgres",
   DB_PASSWORD = "ans123",
   DB_HOST = "127.0.0.1",
-  DB_NAME = "database",
+  DB_NAME = "chapter6",
 } = process.env;
 
 module.exports = {
   development: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}_development`,
+    database: `${DB_NAME}`,
     host: DB_HOST,
     dialect: "postgres",
   },

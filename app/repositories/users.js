@@ -1,6 +1,11 @@
+/**
+ * @file contains entry point of controllers api module
+ * @author Kelompok5
+ */
+
 const {
     Users
-} = require('../models');
+} = require("../models");
 
 module.exports = {
     create(registerArgs) {
@@ -16,22 +21,21 @@ module.exports = {
     },
 
     findAll() {
-        return Users.findAll();
+        return Users.findAll()
     },
-
     update(id, updateArgs) {
         return Users.update(updateArgs, {
-            where: {
-                id,
-            },
+          where: {
+            id,
+          },
         });
-    },
-
-    delete(id) {
+      },
+    
+      delete(id) {
         return Users.destroy({
-            where: {
-                id,
-            },
+          where: {
+            id,
+          },
         });
-    }
+      }
 }

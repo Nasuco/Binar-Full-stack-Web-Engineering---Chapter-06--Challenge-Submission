@@ -1,0 +1,1003 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "Binar Car Management API",
+    "contact": {
+      "email": "safiraadty@gmail.com"
+    }
+  },
+  "servers": [{
+    "url": "http://localhost:3000",
+    "description": "Car Management API"
+  }],
+  "tags": [{
+      "name": "Cars",
+      "description": "Everything about cars data"
+    },
+    {
+      "name": "Users",
+      "description": "Everything about users data"
+    }
+  ],
+  "paths": {
+    "/api/v1/cars": {
+      "post": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Create New Cars",
+        "description": "This endpoint will create new cars",
+        "operationId": "createCars",
+        "consumes": [
+          "application/json"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Avanza"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "Sedan"
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": "Large"
+                  },
+                  "price": {
+                    "type": "string",
+                    "example": 170000000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cars data have created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "success"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Mercedes"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "Sedan"
+                    },
+                    "size": {
+                      "type": "string",
+                      "example": "Large"
+                    },
+                    "price": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 150000000
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Column cannot be null",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "null value in column \"name\" of relation \"Cars\" violates not-null constraint"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Get All Cars List",
+        "description": "This endpoint will show all cars list",
+        "operationId": "getCars",
+        "consumes": [
+          "application/json"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Avanza"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "Sedan"
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": "Large"
+                  },
+                  "price": {
+                    "type": "string",
+                    "example": 170000000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cars data have shown successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "success"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Mercedes"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "Sedan"
+                    },
+                    "size": {
+                      "type": "string",
+                      "example": "Large"
+                    },
+                    "price": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 150000000
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cars/{id}": {
+      "put": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Update Cars Data",
+        "description": "This endpoint for update cars data",
+        "operationId": "updateCars",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/id"
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Mercedes"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "Sedan"
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": "Large"
+                  },
+                  "price": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 150000000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Updated cars data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully updated cars data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Column cannot be null",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "null value in column \"name\" of relation \"Cars\" violates not-null constraint"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Show Cars Data By ID",
+        "description": "This endpoint for show cars data by ID",
+        "operationId": "showCars",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/id"
+        }],
+        "responses": {
+          "201": {
+            "description": "Show Cars Data By ID",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully show cars data by ID"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Delete Cars Data By ID",
+        "description": "This endpoint for delete cars data by ID",
+        "operationId": "destroyCars",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/id"
+        }],
+        "responses": {
+          "201": {
+            "description": "Delete Cars Data By ID",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully delete cars data by ID"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/register": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Register Users as Superadmin, Admin, or Members",
+        "description": "This endpoint for register new users",
+        "operationId": "register",
+        "consumes": [
+          "application/json"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Kim Taehyung"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "thv@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "jazzthv"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "admin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Users have registered successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Kim Namjoon"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "example": "rkive@gmail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "namjoonarchive"
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "superadmin"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Column cannot be null",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "null value in column \"name\" of relation \"Users\" violates not-null constraint"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Login Users as Superadmin, Admin, or Members",
+        "description": "This endpoint for login new users",
+        "operationId": "login",
+        "consumes": [
+          "application/json"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "rkive@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "namjoonarchive"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Users have login successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Kim Namjoon"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "example": "rkive@gmail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "namjoonarchive"
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "superadmin"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Column cannot be null",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "null value in column \"name\" of relation \"Users\" violates not-null constraint"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Show All Users Data",
+        "description": "This endpoint for show all users data",
+        "operationId": "getUsers",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/id"
+        }],
+        "responses": {
+          "201": {
+            "description": "Show All Users Data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully show all users data"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/whoami": {
+      "get": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Users"
+        ],
+        "summary": "Authorize Users",
+        "description": "This endpoint for authorize users",
+        "operationId": "authUsers",
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Authorize Users",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully authorize users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update member to Admin by Superadmin",
+        "description": "This endpoint for update member to Admin",
+        "operationId": "updateAdmin",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/id"
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Kim Taehyung"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "thv@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "jazzthv"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "member"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Updated member to admin",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully updated member to admin"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Column cannot be null",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "null value in column \"name\" of relation \"Users\" violates not-null constraint"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        },
+        "security": [{
+          "carAuth": []
+        }]
+      },
+      "delete": {
+        "security": [{
+          "carAuth": []
+        }],
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete Users by Superadmin",
+        "description": "This endpoint for delete users",
+        "operationId": "destroyUsers",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [{
+          "$ref": "#/components/parameters/id"
+        }],
+        "responses": {
+          "201": {
+            "description": "Successfully deteled users",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Succesfully deleted users"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Route not found!",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Failed"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Route not found!"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "carAuth": {
+        "description": "Authentication for Car Management API",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "Car id for spesific car",
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      }
+    }
+  },
+  "apis": ["./routes"]
+}
