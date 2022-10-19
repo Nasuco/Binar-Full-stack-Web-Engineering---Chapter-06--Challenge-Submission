@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "Binar Car Management API",
     "contact": {
-      "email": "safiraadty@gmail.com"
+      "email": "kel5@gmail.com"
     }
   },
   "servers": [{
@@ -508,16 +508,16 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "Kim Taehyung"
+                    "example": "KelompokFive"
                   },
                   "email": {
                     "type": "string",
                     "format": "email",
-                    "example": "thv@gmail.com"
+                    "example": "kel5@gmail.com"
                   },
                   "password": {
                     "type": "string",
-                    "example": "jazzthv"
+                    "example": "kelfive"
                   },
                   "role": {
                     "type": "string",
@@ -547,16 +547,16 @@
                     },
                     "name": {
                       "type": "string",
-                      "example": "Kim Namjoon"
+                      "example": "KelompokFive"
                     },
                     "email": {
                       "type": "string",
                       "format": "email",
-                      "example": "rkive@gmail.com"
+                      "example": "kel5@gmail.com"
                     },
                     "password": {
                       "type": "string",
-                      "example": "namjoonarchive"
+                      "example": "kelfivearchive"
                     },
                     "role": {
                       "type": "string",
@@ -622,11 +622,11 @@
                   "email": {
                     "type": "string",
                     "format": "email",
-                    "example": "rkive@gmail.com"
+                    "example": "kel5@gmail.com"
                   },
                   "password": {
                     "type": "string",
-                    "example": "namjoonarchive"
+                    "example": "kelfivearchive"
                   }
                 }
               }
@@ -652,16 +652,16 @@
                     },
                     "name": {
                       "type": "string",
-                      "example": "Kim Namjoon"
+                      "example": "KelompokFive"
                     },
                     "email": {
                       "type": "string",
                       "format": "email",
-                      "example": "rkive@gmail.com"
+                      "example": "kel5@gmail.com"
                     },
                     "password": {
                       "type": "string",
-                      "example": "namjoonarchive"
+                      "example": "kelfivearchive"
                     },
                     "role": {
                       "type": "string",
@@ -833,16 +833,16 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "Kim Taehyung"
+                    "example": "KelompokFive"
                   },
                   "email": {
                     "type": "string",
                     "format": "email",
-                    "example": "thv@gmail.com"
+                    "example": "kel5@gmail.com"
                   },
                   "password": {
                     "type": "string",
-                    "example": "jazzthv"
+                    "example": "kelfive"
                   },
                   "role": {
                     "type": "string",
