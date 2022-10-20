@@ -4,38 +4,39 @@
  */
 
 const {
-    Users
+  Users
 } = require("../models");
 
 module.exports = {
-    create(registerArgs) {
-        return Users.create(registerArgs);
-    },
+  create(registerArgs) {
+    return Users.create(registerArgs);
+  },
 
-    findOne(id) {
-        return Users.findOne(id);
-    },
+  findOne(id) {
+    return Users.findOne(id);
+  },
 
-    findByPk(id) {
-        return Users.findByPk(id);
-    },
+  findByPk(id) {
+    return Users.findByPk(id);
+  },
 
-    findAll() {
-        return Users.findAll()
-    },
-    update(id, updateArgs) {
-        return Users.update(updateArgs, {
-          where: {
-            id,
-          },
-        });
+  findAll() {
+    return Users.findAll()
+  },
+
+  update(id, updateArgs) {
+    return Users.update(updateArgs, {
+      where: {
+        id,
       },
-    
-      delete(id) {
-        return Users.destroy({
-          where: {
-            id,
-          },
-        });
-      }
+    });
+  },
+
+  delete(id) {
+    return Users.destroy({
+      where: {
+        id,
+      },
+    });
+  }
 }

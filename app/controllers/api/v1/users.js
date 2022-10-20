@@ -192,7 +192,7 @@ module.exports = {
     try {
       const users = await userService.update(req.params.id, req.body);
       res.status(200).json({
-        status: "Successfully updated member to admin"
+        status: "the update was successful"
       })
     } catch (err) {
       res.status(400).json({
