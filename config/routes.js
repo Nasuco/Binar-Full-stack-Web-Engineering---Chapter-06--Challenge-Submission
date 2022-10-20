@@ -2,9 +2,6 @@ const express = require("express");
 const controllers = require("../app/controllers");
 const cors = require("cors")
 
-// const auth = require('../middlewares/authentication');
-// const ownership = require('../middlewares/checkCredential');
-
 const appRouter = express.Router();
 const apiRouter = express.Router();
 
