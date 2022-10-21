@@ -48,7 +48,10 @@ apiRouter.get(
 );
 
 // Get All Users
-apiRouter.get("/api/v1/users", controllers.api.v1.users.getUsers);
+apiRouter.get("/api/v1/users", 
+controllers.api.v1.users.authorize,
+controllers.api.v1.users.isSuperAdmin,
+controllers.api.v1.users.getUsers);
 
 // Create Cars
 apiRouter.post(
@@ -83,7 +86,9 @@ apiRouter.delete(
 );
 
 // Show All Cars List
-apiRouter.get("/api/v1/cars", controllers.api.v1.cars.list);
+apiRouter.get("/api/v1/cars", 
+controllers.api.v1.users.authorize,
+controllers.api.v1.cars.list);
 
 /**
  * TODO: Delete this, this is just a demonstration of
