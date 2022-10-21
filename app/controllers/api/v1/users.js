@@ -43,7 +43,7 @@ module.exports = {
     const name = req.body.name;
     const email = req.body.email;
     const password = await encryptPassword(req.body.password);
-    const role = req.body.role;
+    const role = "member";
     const user = await userService.create({
       name,
       email,
