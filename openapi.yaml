@@ -1,13 +1,348 @@
+# openapi: 3.0.0
+# info:
+#   title: Binar Car Management API
+#   version: 0.0.1
+#   contact:
+#     email: 'kel5@gmail.com'
+# servers:
+#   - description: Mock Server
+#     url: https://mock.medium.com
+# tags:
+#   - name: Post
+#     description: Contain every operation about Post Resource
+# paths:
+
 openapi: 3.0.0
 info:
-  title: Binar Car Management API
-  version: 0.0.1
-  contact:
-    email: 'kel5@gmail.com'
+  title: Binar Academy Post API
+  version: 1.0.0
 servers:
-  - description: Mock Server
-    url: https://mock.medium.com
+  - url: http://localhost:3000
+    description: Development server
 tags:
-  - name: Post
-    description: Contain every operation about Post Resource
+  - name: Cars
+    description: Everything about cars data
+  - name: Users
+    description: Everything about users data
 paths:
+
+  
+  
+  /api/v1/cars:
+  
+    post:
+        tags:
+          - Cars
+        summary: Create cars data
+        requestBody:
+          content:
+            application/json:
+              schema:
+                          properties:
+                            name:
+                              type: string
+                              example: BMW X6
+                            type:
+                              type: string
+                              example: Coupe
+                            size:
+                              type: string
+                              example: small
+                            price:
+                              type: integer
+                              example: 300000000
+                            image:
+                              type: string
+                              example: car01.jpg
+                            created_by:
+                              type: string
+                              example: kel5@gmail.com
+                            updated_by:
+                              type: string
+                              example: kel5@gmail.com
+          required: true
+        responses:
+          '200':
+            description: A post was created
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: Created
+                    data:
+                      type: object
+                      properties:
+                        posts:
+                          type: array
+                          items:
+                            properties:
+                              id:
+                                type: integer
+                                format: int64
+                                example: 1
+                              name:
+                                type: string
+                                example: BMW X6
+                              type:
+                                type: string
+                                example: Coupe
+                              size:
+                                type: string
+                                example: small
+                              price:
+                                type: integer
+                                example: 300000000
+                              image:
+                                type: string
+                                example: car01.jpg
+                              created_by:
+                                type: string
+                                example: kel5@gmail.com
+                              updated_by:
+                                type: string
+                                example: kel5@gmail.com
+                              createdAt:
+                                type: string
+                                example: '2022-10-19T16:31:35.465Z'  
+                              updatedAt:
+                                type: string
+                                example: '2022-10-19T16:31:35.465Z'
+                                
+          '401':
+            description: If member tried to put cars data
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: Unauthorized
+                    message:
+                      type: string
+                      example: Danger area, not user access zone
+  
+    get:
+      tags:
+        - Cars
+      summary: Get all data list
+      description: To retrive the list of posts
+      responses:
+        '200':
+          description: If data successfully retrived
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+                  data:
+                    type: object
+                    properties:
+                      posts:
+                        type: array
+                        items:
+                          properties:
+                            id:
+                              type: integer
+                              format: int64
+                              example: 1
+                            name:
+                              type: string
+                              example: BMW X6
+                            type:
+                              type: string
+                              example: Coupe
+                            size:
+                              type: string
+                              example: small
+                            price:
+                              type: integer
+                              example: 300000000
+                            image:
+                              type: string
+                              example: car01.jpg
+                            created_by:
+                              type: string
+                              example: kel5@gmail.com
+                            updated_by:
+                              type: string
+                              example: kel5@gmail.com
+                            createdAt:
+                              type: string
+                              example: '2022-10-21T14:54:47.351Z'
+                            updatedAt:
+                              type: string
+                              example: '2022-10-21T15:07:38.393Z'
+                      count:
+                        type: integer
+                        format: int64
+                        example: 10
+        '404':
+          description: If failed to retrive the data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: FAIL
+
+    
+                  
+  /api/v1/cars/{id}:
+    get:
+      tags:
+        - Cars
+      summary: Get data by id
+      description: To retrive data by id
+      parameters:
+      - name: id
+        in: path
+        description: ID of the post
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: If data successfully retrived
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+                  data:
+                    type: object
+                    properties:
+                      posts:
+                        type: array
+                        items:
+                          properties:
+                            id:
+                              type: integer
+                              format: int64
+                              example: 1
+                            name:
+                              type: string
+                              example: BMW X6
+                            type:
+                              type: string
+                              example: Coupe
+                            size:
+                              type: string
+                              example: small
+                            price:
+                              type: integer
+                              example: 300000000
+                            image:
+                              type: string
+                              example: car01.jpg
+                            created_by:
+                              type: string
+                              example: kel5@gmail.com
+                            updated_by:
+                              type: string
+                              example: kel5@gmail.com
+                            createdAt:
+                              type: string
+                              example: '2022-10-21T14:54:47.351Z'
+                            updatedAt:
+                              type: string
+                              example: '2022-10-21T15:07:38.393Z'
+                      count:
+                        type: integer
+                        format: int64
+                        example: 10
+        '400':
+          description: If failed to retrive the data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: FAIL
+                  message:
+                    type: string
+                    example: Bad request
+    
+    put:
+      tags:
+        - Cars
+      summary: Put data by id
+      description: To retrive the list of posts
+      parameters:
+      - name: id
+        in: path
+        description: ID of the Car
+        required: true
+        schema:
+          properties:
+           id:
+            type: object
+            example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: Lamborghini
+                  price:
+                    type: integer
+                    example: 3200000000
+        required: true
+      responses:
+        '200':
+          description: If data successfully retrived
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+        '401':
+          description: If member tried to put cars data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Danger area, not user access zone
+                    
+    delete:
+      tags:
+        - Cars
+      summary: Delete data by id
+      description: To delete data by id
+      parameters:
+      - name: id
+        in: path
+        description: ID of the post
+        required: true
+        schema:
+          properties:
+            id:
+              type: object
+              example: 1
+      responses:
+        '204':
+          description: no content
+          
+  
