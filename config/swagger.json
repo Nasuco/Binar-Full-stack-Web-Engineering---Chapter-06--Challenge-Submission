@@ -8,11 +8,14 @@
       "email": "kel5@gmail.com"
     }
   },
-  "servers": [{
-    "url": "http://localhost:3000",
-    "description": "Car Management API"
-  }],
-  "tags": [{
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Car Management API"
+    }
+  ],
+  "tags": [
+    {
       "name": "Cars",
       "description": "Everything about cars data"
     },
@@ -24,18 +27,16 @@
   "paths": {
     "/api/v1/cars": {
       "post": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Cars"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Cars"],
         "summary": "Create New Cars",
         "description": "This endpoint will create new cars",
         "operationId": "createCars",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -153,18 +154,16 @@
         }
       },
       "get": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Cars"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Cars"],
         "summary": "Get All Cars List",
         "description": "This endpoint will show all cars list",
         "operationId": "getCars",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -268,21 +267,21 @@
     },
     "/api/v1/cars/{id}": {
       "put": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Cars"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Cars"],
         "summary": "Update Cars Data",
         "description": "This endpoint for update cars data",
         "operationId": "updateCars",
-        "consumes": [
-          "application/json"
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
         ],
-        "parameters": [{
-          "$ref": "#/components/parameters/id"
-        }],
         "requestBody": {
           "content": {
             "application/json": {
@@ -371,21 +370,21 @@
         }
       },
       "get": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Cars"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Cars"],
         "summary": "Show Cars Data By ID",
         "description": "This endpoint for show cars data by ID",
         "operationId": "showCars",
-        "consumes": [
-          "application/json"
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
         ],
-        "parameters": [{
-          "$ref": "#/components/parameters/id"
-        }],
         "responses": {
           "201": {
             "description": "Show Cars Data By ID",
@@ -430,21 +429,21 @@
         }
       },
       "delete": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Cars"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Cars"],
         "summary": "Delete Cars Data By ID",
         "description": "This endpoint for delete cars data by ID",
         "operationId": "destroyCars",
-        "consumes": [
-          "application/json"
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
         ],
-        "parameters": [{
-          "$ref": "#/components/parameters/id"
-        }],
         "responses": {
           "201": {
             "description": "Delete Cars Data By ID",
@@ -491,15 +490,11 @@
     },
     "/api/v1/users/register": {
       "post": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Register Users as Superadmin, Admin, or Members",
         "description": "This endpoint for register new users",
         "operationId": "register",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -604,15 +599,11 @@
     },
     "/api/v1/users/login": {
       "post": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Login Users as Superadmin, Admin, or Members",
         "description": "This endpoint for login new users",
         "operationId": "login",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -709,18 +700,16 @@
     },
     "/api/v1/users": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Show All Users Data",
         "description": "This endpoint for show all users data",
         "operationId": "getUsers",
-        "consumes": [
-          "application/json"
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
         ],
-        "parameters": [{
-          "$ref": "#/components/parameters/id"
-        }],
         "responses": {
           "201": {
             "description": "Show All Users Data",
@@ -755,18 +744,16 @@
     },
     "/api/v1/users/whoami": {
       "get": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Users"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Users"],
         "summary": "Authorize Users",
         "description": "This endpoint for authorize users",
         "operationId": "authUsers",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "responses": {
           "201": {
             "description": "Authorize Users",
@@ -813,18 +800,16 @@
     },
     "/api/v1/users/{id}": {
       "put": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Update member to Admin by Superadmin",
         "description": "This endpoint for update member to Admin",
         "operationId": "updateAdmin",
-        "consumes": [
-          "application/json"
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
         ],
-        "parameters": [{
-          "$ref": "#/components/parameters/id"
-        }],
         "requestBody": {
           "content": {
             "application/json": {
@@ -911,26 +896,28 @@
             }
           }
         },
-        "security": [{
-          "carAuth": []
-        }]
+        "security": [
+          {
+            "carAuth": []
+          }
+        ]
       },
       "delete": {
-        "security": [{
-          "carAuth": []
-        }],
-        "tags": [
-          "Users"
+        "security": [
+          {
+            "carAuth": []
+          }
         ],
+        "tags": ["Users"],
         "summary": "Delete Users by Superadmin",
         "description": "This endpoint for delete users",
         "operationId": "destroyUsers",
-        "consumes": [
-          "application/json"
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
         ],
-        "parameters": [{
-          "$ref": "#/components/parameters/id"
-        }],
         "responses": {
           "201": {
             "description": "Successfully deteled users",

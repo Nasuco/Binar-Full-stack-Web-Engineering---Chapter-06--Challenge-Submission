@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  title: Binar Car Management API
+  version: 0.0.1
+  contact:
+    email: 'kel5@gmail.com'
+servers:
+  - description: Mock Server
+    url: https://mock.medium.com
+tags:
+  - name: Post
+    description: Contain every operation about Post Resource
+paths:
