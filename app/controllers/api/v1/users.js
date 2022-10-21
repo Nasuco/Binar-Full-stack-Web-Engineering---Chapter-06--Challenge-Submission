@@ -43,7 +43,7 @@ module.exports = {
     const name = req.body.name;
     const email = req.body.email;
     const password = await encryptPassword(req.body.password);
-    const role = req.body.role;
+    const role = "member";
     const user = await userService.create({
       name,
       email,
@@ -190,9 +190,18 @@ module.exports = {
 
   async update(req, res) {
     try {
-      const users = await userService.update(req.params.id, req.body);
+      const name = req.body.name;
+      const email = req.body.email;
+      const password = await encryptPassword(req.body.password);
+      const role = req.body.role;
+      const users = await userService.update(req.params.id, {
+        name,
+        email,
+        password,
+        role
+      });
       res.status(200).json({
-        status: "Successfully updated member to admin"
+        status: "the update was successful"
       })
     } catch (err) {
       res.status(400).json({

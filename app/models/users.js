@@ -38,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Users',
     validate: {
       userValidation() {
-        if(this.name.length < 7) {
-          throw new Error("First Name length must be 7 or greater!")
+        if(this.name.length < 5) {
+          throw new Error("First Name length must be 5 or greater!")
         }
       }
     }

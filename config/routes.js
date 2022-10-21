@@ -1,8 +1,6 @@
 const express = require("express");
 const controllers = require("../app/controllers");
 const cors = require("cors")
-// const auth = require('../middlewares/authentication');
-// const ownership = require('../middlewares/checkCredential');
 
 const appRouter = express.Router();
 const apiRouter = express.Router();
@@ -36,6 +34,12 @@ apiRouter.put(
   controllers.api.v1.users.update
 );
 
+// Delete Users
+apiRouter.delete("/api/v1/users/:id", 
+controllers.api.v1.users.authorize,
+controllers.api.v1.users.isSuperAdmin,
+controllers.api.v1.users.destroy);
+
 // Authorize Users
 apiRouter.get(
   "/api/v1/users/whoami",
@@ -45,9 +49,6 @@ apiRouter.get(
 
 // Get All Users
 apiRouter.get("/api/v1/users", controllers.api.v1.users.getUsers);
-
-// Delete Users
-apiRouter.delete("/api/v1/users/:id", controllers.api.v1.users.destroy);
 
 // Create Cars
 apiRouter.post(
