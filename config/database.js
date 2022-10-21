@@ -4,7 +4,7 @@
  */
 
 /** Destruct environment variable to get database configuration */
-const { DB_USERNAME = 'postgres', DB_PASSWORD = 'ans123', DB_HOST = '127.0.0.1', DB_NAME = 'chapter6' } = process.env;
+const { DB_USERNAME = 'postgres', DB_PASSWORD = 'maryam23', DB_HOST = '127.0.0.1', DB_NAME = 'chapter6' } = process.env;
 
 module.exports = {
   development: {
