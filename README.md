@@ -12,3 +12,9 @@ https://documenter.getpostman.com/view/23545782/2s84Dmw4Dc
 - annas
 - faishal
 - fikri
+
+# Super Admin
+{
+"email" : "kel5@gmail.com",
+"password" : "12345"
+}
