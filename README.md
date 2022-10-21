@@ -1,6 +1,3 @@
-# Link Open API
-https://documenter.getpostman.com/view/23545782/2s84Dmw4Dc
-
 # How to install
 - npm run db:create
 - npm run db:migrate
@@ -12,6 +9,9 @@ https://documenter.getpostman.com/view/23545782/2s84Dmw4Dc
 - annas
 - faishal
 - fikri
+
+# Link Dokumentasi API
+https://documenter.getpostman.com/view/23545782/2s84Dmw4Dc
 
 # Super Admin
 {
